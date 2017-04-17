@@ -1,20 +1,11 @@
 {
-  "name": "NewAOSite",
-  "version": "0.1.0",
+  "name": "AO-Site",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "0.8.4"
+  "scripts": {
+    "start": "meteor run"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "express": "^4.14.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "babel-runtime": "^6.20.0",
+    "meteor-node-stubs": "~0.2.4"
   }
 }
