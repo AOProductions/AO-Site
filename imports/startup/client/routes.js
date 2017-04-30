@@ -5,6 +5,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/calendar/calendar.js';
+import '../../ui/pages/gallery/gallery.js';
 import '../../ui/pages/about/about.js';
 import '../../ui/pages/not-found/not-found.js';
 
@@ -19,14 +20,21 @@ FlowRouter.route('/', {
 FlowRouter.route('/calendar', {
     name: 'App.calendar',
     action() {
-        BlazeLayout.render('calendar', {main: 'App_home'});
+        BlazeLayout.render('App_body', {main: 'calendar'});
+    }
+});
+
+FlowRouter.route('/gallery', {
+    name: 'App.gallery',
+    action() {
+        BlazeLayout.render('App_body', {main: 'gallery'});
     }
 });
 
 FlowRouter.route('/about', {
     name: 'App.about',
     action() {
-        BlazeLayout.render('about', {main: 'App_home'});
+        BlazeLayout.render('App_body', {main: 'about'});
     }
 });
 
