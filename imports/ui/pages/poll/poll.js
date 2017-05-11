@@ -2,13 +2,34 @@ import './poll.html';
 
 Template.poll.helpers({
     artists: [
-        {name: "Kanye"},
-        {name: "Drake"},
-        {name: "Jaden Smith"},
-        {name: "Skepta"},
-        {name: "Dave"},
-        {name: "Jeff"},
-        {name: "Beyoncé"}
+        {
+            name: "Kanye",
+            selected: false
+        },
+        {
+            name: "Drake",
+            selected: true
+        },
+        {
+            name: "DRAM",
+            selected: false
+        },
+        {
+            name: "Skepta",
+            selected: false
+        },
+        {
+            name: "Kendrick",
+            selected: true
+        },
+        {
+            name: "Pablo",
+            selected: false
+        },
+        {
+            name: "Jeff",
+            selected: false
+        }
     ],
 });
 
