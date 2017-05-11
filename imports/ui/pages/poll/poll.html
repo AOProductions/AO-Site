@@ -1,0 +1,9 @@
+<template name="poll">
+  <h1>Poll</h1>
+    <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+    </form>
+    {{#each artists}}
+      <li>{{name}}</li>
+    {{/each}}
+</template>
