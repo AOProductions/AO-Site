@@ -36,16 +36,28 @@ Template.poll.helpers({
 
 
 Template.poll.events({
-  'submit .new-task'(event) {
+  'submit .poll-submit'(event) {
     // Prevent default browser form submit
     event.preventDefault();
+    console.log("Yoooo");
 
-    // Get value from form element
-    const target = event.target;
-    const text = target.text.value;
+    var elements = document.getElementsByClassName('artist-box');
+    var artistSelectedPairs = [];
 
-    console.log("yooooo");
+    for(var i = 0; i < elements.length; i++){
+        var key_val = {
+            name: elements[i].name,
+            selected: elements[i].checked,
+        }
 
-    target.text.value = "";
+        artistSelectedPairs.push(key_val);
+    }
+
+    console.log(artistSelectedPairs);
+
+}}, {
+    'change .artist-box'(event) {
+        event.preventDefault();
+        console.log("change");
     }
 });

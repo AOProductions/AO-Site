@@ -1,14 +1,15 @@
 <template name="poll">
   <h1>Poll</h1>
-    <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
-    </form>
+  <form class="poll-submit">
     {{#each artists}}
       <li>{{name}}</li>
       {{#if selected}}
-        <p>selected</p>
+        <input name="{{name}}" class="artist-box" type="checkbox" checked="checked">
       {{else}}
-        <p>not selected</p>
+        <input name="{{name}}" class="artist-box" type="checkbox">
       {{/if}}
     {{/each}}
+    <div class="g-recaptcha" data-sitekey="6LekBCEUAAAAAKVxAEy-nszHUXINP3M6dVR4CaY6"></div>
+    <input type="submit" name="text" placeholder="Type to add new tasks" />
+  </form>
 </template>
