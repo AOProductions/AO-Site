@@ -1,46 +1,47 @@
 import './poll.html';
 
+import '../../components/poll/item/item.js';
+
 Template.poll.helpers({
-    artists: [
-        {
-            name: "Kanye",
-            selected: false
-        },
-        {
-            name: "Drake",
-            selected: true
-        },
-        {
-            name: "DRAM",
-            selected: false
-        },
-        {
-            name: "Skepta",
-            selected: false
-        },
-        {
-            name: "Kendrick",
-            selected: true
-        },
-        {
-            name: "Pablo",
-            selected: false
-        },
-        {
-            name: "Jeff",
-            selected: false
-        }
-    ],
+    rows: [{
+        items: [
+            {
+                name: "Kanye",
+                selected: false
+            },
+            {
+                name: "Drake",
+                selected: false
+            },
+            {
+                name: "DRAM",
+                selected: false
+            },
+            {
+                name: "Skepta",
+                selected: false
+            }
+        ]},{items: [
+            {
+                name: "Kendrick",
+                selected: false
+            },
+            {
+                name: "Pablo",
+                selected: false
+            },
+            {
+                name: "Jeff",
+                selected: false
+            }
+        ]}
+    ]
 });
-
-
 
 Template.poll.events({
   'submit .poll-submit'(event) {
     // Prevent default browser form submit
     event.preventDefault();
-    console.log("Yoooo");
-
     var elements = document.getElementsByClassName('artist-box');
     var artistSelectedPairs = [];
 
@@ -51,6 +52,10 @@ Template.poll.events({
         }
 
         artistSelectedPairs.push(key_val);
+    }
+
+    function showSelected(pair) {
+        return pair.selected;
     }
 
     console.log(artistSelectedPairs);

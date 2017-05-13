@@ -1,0 +1,10 @@
+<template name="item">
+    <div class="col-md-3">
+        <li>{{name}}</li>
+        {{#if selected}}
+          <input name="{{name}}" class="artist-box" type="checkbox" checked="checked">
+        {{else}}
+          <input name="{{name}}" class="artist-box" type="checkbox">
+        {{/if}}
+    </div>
+</template>
