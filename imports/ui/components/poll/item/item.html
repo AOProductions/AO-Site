@@ -1,11 +1,11 @@
 <template name="item">
-    <div class="col-md-3" style="border: 1px solid black;">
+    <div class="col-md-3 col-sm-6" >
         <label for="{{name}}">
-        <div class="card">
-        <img class="card-img-top" src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=5385005" alt="Card image cap" style="width: 100%; height: 100%;">
+        <div class="card" style="border: 1px solid black;">
+        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Kanye_West_at_the_2009_Tribeca_Film_Festival.jpg/220px-Kanye_West_at_the_2009_Tribeca_Film_Festival.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
             <div class="card-block">
             <h4 class="card-title">{{name}}</h4>
-            <input name="{{name}}" type="checkbox" id="{{name}}" />
+            <input name="{{name}}" type="checkbox" id="{{name}}" class="artist-box"/>
             </div>
         </div>
     </label>

@@ -1,16 +1,14 @@
 <template name="poll">
   <h1>Poll</h1>
   <form class="poll-submit">
-    <div class="container">
     {{#each rows}}
         <div class="row">
             {{#each items}}
             {{> item name=name }}
-        {{/each}}
-    </div>
+            {{/each}}
+        </div>
     {{/each}}
     <div class="g-recaptcha" data-sitekey="6LekBCEUAAAAAKVxAEy-nszHUXINP3M6dVR4CaY6"></div>
-    <input type="submit" name="text" placeholder="Type to add new tasks" />
-    </div>
+    <input type="submit" name="text"/>
   </form>
 </template>
