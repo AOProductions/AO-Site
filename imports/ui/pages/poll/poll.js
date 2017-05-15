@@ -60,9 +60,26 @@ Template.poll.events({
 
     console.log(artistSelectedPairs);
 
-}}, {
-    'change .artist-box'(event) {
-        event.preventDefault();
-        console.log("change");
-    }
-});
+    Meteor.call('insertResponse', artistSelectedPairs, (error) => {
+        if (error) {
+            console.log(error);
+        }
+    });
+
+}});
+
+
+// Template.hello.events({
+//   'click button': function () {
+//     // increment the counter when button is clicked
+//     let count = Session.get('counter') + 1;
+//
+//     Session.set( 'counter', count );
+//
+//     Meteor.call( 'insertTaco', count, ( error ) => {
+//       if ( error ) {
+//         console.log( error );
+//       }
+//     });
+//   }
+// });
