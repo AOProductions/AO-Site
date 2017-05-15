@@ -3,38 +3,32 @@ import './poll.html';
 import '../../components/poll/item/item.js';
 
 Template.poll.helpers({
-    rows: [{
-        items: [
+    artists: [{
+        row: [
             {
                 name: "Kanye",
-                selected: false
             },
             {
                 name: "Drake",
-                selected: false
             },
             {
                 name: "DRAM",
-                selected: false
             },
             {
                 name: "Skepta",
-                selected: false
             }
-        ]},{items: [
-            {
-                name: "Kendrick",
-                selected: false
-            },
-            {
-                name: "Pablo",
-                selected: false
-            },
-            {
-                name: "Jeff",
-                selected: false
-            }
-        ]}
+        ]},
+        {
+        row: [
+        {
+            name: "Kendrick",
+        },
+        {
+            name: "Pablo",
+        },
+        {
+            name: "Jeff",
+        }]}
     ]
 });
 
