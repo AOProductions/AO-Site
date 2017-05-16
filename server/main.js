@@ -15,5 +15,10 @@ Meteor.methods({
       response = null
       response = JSON.parse(Assets.getText('artists.json'));
       return response;
+  },
+  logSpeakers(){
+      response = null
+      response = JSON.parse(Assets.getText('speakers.json'));
+      return response;
   }
 });
