@@ -2,3 +2,7 @@
 
 import './fixtures.js';
 import './register-api.js';
+
+Meteor.startup(function() {
+    var artists = JSON.parse(Assets.getText('artists.json'));
+});

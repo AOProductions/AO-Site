@@ -1,16 +1,19 @@
 <template name="poll">
   <h1>Poll</h1>
+  {{processedArtists}}
   <form class="poll-submit" style="text-align: center;">
 
     <h3>Who would you like to see at Blowout?</h3>
     <h5>Choose as many as you like</h5>
-    {{#each artists}}
-        <div class="row">
-            {{#each row}}
-            {{> item name=name }}
-            {{/each}}
-        </div>
-    {{/each}}
+    {{#if processedArtists}}
+        {{#each processedArtists}}
+            <div class="row">
+                {{#each row}}
+                {{> item name=name }}
+                {{/each}}
+            </div>
+        {{/each}}
+    {{/if}}
 
     <h3>What type of music would you like to hear at blowout?</h3>
     <h5>Choose as many as you like</h5>
