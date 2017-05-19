@@ -1,7 +1,7 @@
 <template name="item">
     <div class="col-md-3 col-sm-6" >
         <label for="{{name}}">
-        <div class="card" style="border: 1px solid black;">
+        <div class="card" >
         {{#if photoUrl}}
             <img class="card-img-top grey-image" src="{{photoUrl}}" alt="Card image cap" style="width: 100%; height: 100%;" data-name="{{name}}">
         {{else}}
@@ -9,7 +9,7 @@
         {{/if}}
             <div class="card-block">
             <h4 class="card-title">{{name}}</h4>
-            <input name="{{name}}" type="checkbox" id="{{name}}" class="poll-item"/>
+            <input name="{{name}}" type="checkbox" id="{{name}}" class="poll-item" style="display: none;"/>
             </div>
         </div>
     </label>
