@@ -26,7 +26,6 @@ Template.poll.helpers({
             }
             row_list.push(row);
         }
-        console.log(row_list)
         return row_list;
     },
     speakerList: function() {
@@ -52,7 +51,6 @@ Template.poll.helpers({
             }
             row_list.push(row);
         }
-        console.log(row_list)
         return row_list;
     },
 });
@@ -72,7 +70,6 @@ Template.poll.onCreated(function() {
             return;
         }
         al.set(response);
-        console.log(al.get());
     })
 
     Meteor.call('logSpeakers', function(err, response) {
@@ -81,7 +78,6 @@ Template.poll.onCreated(function() {
             return;
         }
         sp.set(response);
-        console.log(sp.get());
     })
 });
 
@@ -89,7 +85,7 @@ Template.poll.events({
     'submit .poll-submit' (event) {
         // Prevent default browser form submit
         event.preventDefault();
-        var elements = document.getElementsByClassName('artist-box');
+        var elements = document.getElementsByClassName('poll-item');
         var artistSelectedPairs = [];
 
         for (var i = 0; i < elements.length; i++) {
@@ -107,11 +103,23 @@ Template.poll.events({
 
         console.log(artistSelectedPairs);
 
-        Meteor.call('insertResponse', artistSelectedPairs, (error) => {
-            if (error) {
-                console.log(error);
-            }
-        });
+        // Validation:
 
+        // 1. Validate against original list of artists
+        // Meteor.call('insertResponse', artistSelectedPairs, (error) => {
+        //     if (error) {
+        //         console.log(error);
+        //     }
+        // });
+
+    },
+    'click .poll-item' (event) {
+        var name = event.target.name;
+        if ($('img[data-name="' + name + '"]').hasClass('grey-image')){
+            $('img[data-name="' + name + '"]').removeClass('grey-image');
+        } else {
+            $('img[data-name="' + name + '"]').addClass('grey-image');
+        }
     }
+
 });

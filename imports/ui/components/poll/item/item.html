@@ -3,13 +3,13 @@
         <label for="{{name}}">
         <div class="card" style="border: 1px solid black;">
         {{#if photoUrl}}
-            <img class="card-img-top" src="{{photoUrl}}" alt="Card image cap" style="width: 100%; height: 100%;">
+            <img class="card-img-top grey-image" src="{{photoUrl}}" alt="Card image cap" style="width: 100%; height: 100%;" data-name="{{name}}">
         {{else}}
-            <img class="card-img-top" src="http://thatgrapejuice.net/wp-content/uploads/2016/11/kanye-west-zoom-e2f2f1be-34d2-4beb-9aa3-345303935037.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
+            <img class="card-img-top grey-image" src="http://thatgrapejuice.net/wp-content/uploads/2016/11/kanye-west-zoom-e2f2f1be-34d2-4beb-9aa3-345303935037.jpg" alt="Card image cap" style="width: 100%; height: 100%;" data-name="{{name}}">
         {{/if}}
             <div class="card-block">
             <h4 class="card-title">{{name}}</h4>
-            <input name="{{name}}" type="checkbox" id="{{name}}" class="artist-box"/>
+            <input name="{{name}}" type="checkbox" id="{{name}}" class="poll-item"/>
             </div>
         </div>
     </label>

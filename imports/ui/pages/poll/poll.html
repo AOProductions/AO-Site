@@ -1,30 +1,30 @@
 <template name="poll">
   <h1>Poll</h1>
-  <p>
-      {{#if processedSpeakers}}
-          {{#each processedSpeakers}}
-              <div class="row">
-                  {{#each row}}
-                  {{> item name=person photoUrl=photoUrl}}
-                  {{/each}}
-              </div>
-          {{/each}}
-      {{/if}}
-  </p>
   <form class="poll-submit" style="text-align: center;">
       <p>
           It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
       </p>
 
-      <h3>What kind of music do you want to hear?</h3>
+      <h3>Who would you like to see at Blowout?</h3>
+      <h5>Choose as many as you like</h5>
+      {{#if processedArtists}}
+          {{#each processedArtists}}
+              <div class="row">
+                  {{#each row}}
+                  {{> item name=name photoUrl=photoUrl}}
+                  {{/each}}
+              </div>
+          {{/each}}
+      {{/if}}
 
+      <h3>What kind of music do you want to hear?</h3>
       <div class="row">
           <div class="col-md-2" >
               <label for="hiphop">
               <div class="card" style="border: 1px solid black;">
                   <div class="card-block">
                   <h4 class="card-title">Hip Hop</h4>
-                  <input name="hiphop" type="checkbox" id="hiphop" class="artist-box"/>
+                  <input name="hiphop" type="checkbox" id="hiphop" class="poll-item"/>
                   </div>
               </div>
           </label>
@@ -34,7 +34,7 @@
               <div class="card" style="border: 1px solid black;">
                   <div class="card-block">
                   <h4 class="card-title">rock</h4>
-                  <input name="rock" type="checkbox" id="rock" class="artist-box"/>
+                  <input name="rock" type="checkbox" id="rock" class="poll-item"/>
                   </div>
               </div>
           </label>
@@ -44,7 +44,7 @@
               <div class="card" style="border: 1px solid black;">
                   <div class="card-block">
                   <h4 class="card-title">electronic</h4>
-                  <input name="electronic" type="checkbox" id="electronic" class="artist-box"/>
+                  <input name="electronic" type="checkbox" id="electronic" class="poll-item"/>
                   </div>
               </div>
           </label>
@@ -54,175 +54,206 @@
               <div class="card" style="border: 1px solid black;">
                   <div class="card-block">
                   <h4 class="card-title">bluegrass</h4>
-                  <input name="bluegrass" type="checkbox" id="bluegrass" class="artist-box"/>
+                  <input name="bluegrass" type="checkbox" id="bluegrass" class="poll-item"/>
                   </div>
               </div>
           </label>
           </div>
       </div>
 
-    <h3>Who would you like to see at Blowout?</h3>
+    <h3>Possible speakers for Fall Speaker 2017?</h3>
     <h5>Choose as many as you like</h5>
-    {{#if processedArtists}}
-        {{#each processedArtists}}
+    {{#if processedSpeakers}}
+        {{#each processedSpeakers}}
             <div class="row">
                 {{#each row}}
-                {{> item name=name }}
+                {{> item name=person photoUrl=photoUrl}}
                 {{/each}}
             </div>
         {{/each}}
     {{/if}}
 
-    <h3>Possible speakers for Fall Speaker 2017</h3>
-    <div class="row">
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil" type="checkbox" id="Virgil" class="artist-box"/>
-                </div>
-            </div>
-        </label>
+    <div class="form-group">
+        <h3>Where do you live?</h3>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            On-Campus North
+          </label>
         </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil1">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil1" type="checkbox" id="Virgil1" class="artist-box"/>
-                </div>
-            </div>
-        </label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            On Campus South
+          </label>
         </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil2">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil2" type="checkbox" id="Virgil2" class="artist-box"/>
-                </div>
-            </div>
-        </label>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            Off Campus North
+          </label>
         </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil3">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil3" type="checkbox" id="Virgil3" class="artist-box"/>
-                </div>
-            </div>
-        </label>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+            Off Campus South
+          </label>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil4">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil4" type="checkbox" id="Virgil4" class="artist-box"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil5">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil5" type="checkbox" id="Virgil5" class="artist-box"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil6">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil6" type="checkbox" id="Virgil6" class="artist-box"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-3 col-sm-6" >
-            <label for="Virgil7">
-            <div class="card" style="border: 1px solid black;">
-            <img class="card-img-top" src="http://www.billboard.com/files/styles/article_main_image/public/media/Virgil-Abloh-press-photo-2016-billboard-bw-1548.jpg" alt="Card image cap" style="width: 100%; height: 100%;">
-                <div class="card-block">
-                <h4 class="card-title">Virgil</h4>
-                <input name="Virgil7" type="checkbox" id="Virgil7" class="artist-box"/>
-                </div>
-            </div>
-        </label>
-        </div>
-    </div>
-
-    <h3>Where do you live?</h3>
-    <div class="form-check-1">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        On-Campus North
-      </label>
-    </div>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        On Campus South
-      </label>
-    </div>
-    <div class="form-check disabled">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-        Off Campus North
-      </label>
-    </div>
-    <div class="form-check disabled">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-        Off Campus South
-      </label>
     </div>
 
     <h3>What year are you?</h3>
-    <div class="form-check-2">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        Freshman
-      </label>
+    <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios21" value="option21" checked>
+            Freshman
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios22" value="option22">
+            Sophomore
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios23" value="option23">
+            Junior
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios24" value="option24">
+            Senior
+          </label>
+        </div>
     </div>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        Sophomore
-      </label>
+
+    <h3>What's your gender identity?</h3>
+    <div class="row">
+        <div class="col-md-2" >
+            <label for="hiphop">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Genderqueer or gender questioning</h4>
+                <input name="hiphop" type="checkbox" id="hiphop" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="rock">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Intersex, disorders of sex development, two-spirit, or other related terms</h4>
+                <input name="rock" type="checkbox" id="rock" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="electronic">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Man</h4>
+                <input name="electronic" type="checkbox" id="electronic" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="bluegrass">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Nonconforming</h4>
+                <input name="bluegrass" type="checkbox" id="bluegrass" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
     </div>
-    <div class="form-check disabled">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-        Junior
-      </label>
+
+    <h3>Please identify your race</h3>
+    <div class="row">
+        <div class="col-md-2" >
+            <label for="hiphop">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">American Indian or Alaskan Native</h4>
+                <input name="hiphop" type="checkbox" id="hiphop" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="rock">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Asian or Asian-American</h4>
+                <input name="rock" type="checkbox" id="rock" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="electronic">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Black or African-American</h4>
+                <input name="electronic" type="checkbox" id="electronic" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
+        <div class="col-md-2" >
+            <label for="bluegrass">
+            <div class="card" style="border: 1px solid black;">
+                <div class="card-block">
+                <h4 class="card-title">Hispanic or Latinx</h4>
+                <input name="bluegrass" type="checkbox" id="bluegrass" class="poll-item"/>
+                </div>
+            </div>
+        </label>
+        </div>
     </div>
-    <div class="form-check disabled">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-        Senior
-      </label>
+
+    <h3>How was 2016 – 2017 A&O programming overall?</h3>
+    <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios31" value="option21" checked>
+            1
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios32" value="option22">
+            2
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios33" value="option23">
+            3
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios34" value="option24">
+            4
+          </label>
+        </div>
     </div>
+
+    <h3>Please choose your favorite event. If you have multiple favorites, the next question will allow you to select all of them.</h3>
 
     <div class="form-group">
         <label for="improve"><h3>How can we improve?</h3></label>
         <textarea class="form-control" id="improve" rows="5"></textarea>
     </div>
+
+    <h3>If you would like us to follow up with you, please enter your email below.</h3>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
     <div class="g-recaptcha" data-sitekey="6LekBCEUAAAAAKVxAEy-nszHUXINP3M6dVR4CaY6"></div>
     <input type="submit" name="text"/>
