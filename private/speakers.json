@@ -1,71 +1,85 @@
 [{
-        "person": "Kumail Nanjiani",
-        "bio": "The Big Sick, Silicon Valley ",
-        "photoUrl": "https://massappeal.com/wp-content/uploads/Kumail-Nanjiani-Portrait-JUCO-e1430700019951.jpg"
+        "name": "Kumail Nanjiani",
+        "knownFor": "The Big Sick, Silicon Valley ",
+        "originalUrl": "https://massappeal.com/wp-content/uploads/Kumail-Nanjiani-Portrait-JUCO-e1430700019951.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/kumail_nanjiani.jpg"
     },
     {
-        "person": "John Mulaney",
-        "bio": "The Comeback Kid, Oh Hello",
-        "photoUrl": "http://pixel.nymag.com/imgs/daily/vulture/2015/11/06/mulaney/06-mulaney-lede.w529.h352.jpg"
+        "name": "John Mulaney",
+        "knownFor": "The Comeback Kid, Oh Hello",
+        "originalUrl": "http://pixel.nymag.com/imgs/daily/vulture/2015/11/06/mulaney/06-mulaney-lede.w529.h352.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/john_mulaney.jpg"
     },
     {
-        "person": "Issa Rae",
-        "bio": "Insecure",
-        "photoUrl": "http://hollywoodsblackrenaissance.com/wp-content/uploads/2016/05/Issa-Rae.jpg"
+        "name": "Issa Rae",
+        "knownFor": "Insecure",
+        "originalUrl": "http://hollywoodsblackrenaissance.com/wp-content/uploads/2016/05/Issa-Rae.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/issa_rae.jpg"
     },
     {
-        "person": "Rupaul",
-        "bio": "Rupaul's Drag Race",
-        "photoUrl": "http://davidatlanta.com/wp-content/uploads/2015/03/rupaul.jpg"
+        "name": "Rupaul",
+        "knownFor": "Rupaul's Drag Race",
+        "originalUrl": "http://davidatlanta.com/wp-content/uploads/2015/03/rupaul.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/rupaul.jpg"
     },
     {
-        "person": "Jenny Slate",
-        "bio": "Obvious Child, Parks and Recreation",
-        "photoUrl": "http://cdn.skim.gs/images/c_fill,dpr_1.0,h_391,w_695/v1/msi/wyd57rty2omosc4aoms2/jenny-slate-singing-as-marcel-the-shell-is-an-instant-classic-video"
+        "name": "Jenny Slate",
+        "knownFor": "Obvious Child, Parks and Recreation",
+        "originalUrl": "http://cdn.skim.gs/images/c_fill,dpr_1.0,h_391,w_695/v1/msi/wyd57rty2omosc4aoms2/jenny-slate-singing-as-marcel-the-shell-is-an-instant-classic-video",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/jenny_slate.jpeg"
     },
     {
-        "person": "Jessica Williams",
-        "bio": "Daily Show, 2 Dope Queens",
-        "photoUrl": "http://cdn4.thr.com/sites/default/files/2015/02/jessica_williams.jpg"
+        "name": "Jessica Williams",
+        "knownFor": "Daily Show, 2 Dope Queens",
+        "originalUrl": "http://cdn4.thr.com/sites/default/files/2015/02/jessica_williams.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/jessica_williams.jpg"
     },
     {
-        "person": "Reggie Watts",
-        "bio": "James Corden, Comedy Bang! Bang!",
-        "photoUrl": "http://cdn2.thr.com/sites/default/files/2015/03/reggie_watts_pr_image.jpg"
+        "name": "Reggie Watts",
+        "knownFor": "James Corden, Comedy Bang! Bang!",
+        "originalUrl": "http://cdn2.thr.com/sites/default/files/2015/03/reggie_watts_pr_image.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/reggie_watts.jpg"
     },
     {
-        "person": "Ali Wong",
-        "bio": "Baby Cobra",
-        "photoUrl": "http://images1.dallasobserver.com/imager/u/original/8451996/ali_wong_photo.png"
+        "name": "Ali Wong",
+        "knownFor": "Baby Cobra",
+        "originalUrl": "http://images1.dallasobserver.com/imager/u/original/8451996/ali_wong_photo.png",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/ali_wong.png"
     },
     {
-        "person": "Jo Firestone",
-        "bio": "Tonight Show",
-        "photoUrl": "https://static1.squarespace.com/static/53e919ffe4b0e15b9eeb9465/53e91a24e4b02fed922179ee/57471b414d088e8f654f1eac/1464278190316/jo-firestone-B46A3573.jpg?format=1500w"
+        "name": "Jo Firestone",
+        "knownFor": "Tonight Show",
+        "originalUrl": "https://static1.squarespace.com/static/53e919ffe4b0e15b9eeb9465/53e91a24e4b02fed922179ee/57471b414d088e8f654f1eac/1464278190316/jo-firestone-B46A3573.jpg?format=1500w",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/jo_firestone.jpg"
     },
     {
-        "person": "Leslie Jones",
-        "bio": "SNL, Ghostbusters",
-        "photoUrl": "http://www.trbimg.com/img-57ae356a/turbine/la-et-mg-leslie-jones-rio-olympics-20160812-snap"
+        "name": "Leslie Jones",
+        "knownFor": "SNL, Ghostbusters",
+        "originalUrl": "http://www.trbimg.com/img-57ae356a/turbine/la-et-mg-leslie-jones-rio-olympics-20160812-snap",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/leslie_jones.jpg"
     },
     {
-        "person": "Sasheer Zamata",
-        "bio": "SNL, Pizza Mind",
-        "photoUrl": "https://nypdecider.files.wordpress.com/2016/05/sasheer-zamata.jpg?quality=90&strip=all&w=1156"
+        "name": "Sasheer Zamata",
+        "knownFor": "SNL, Pizza Mind",
+        "originalUrl": "https://nypdecider.files.wordpress.com/2016/05/sasheer-zamata.jpg?quality=90&strip=all&w=1156",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/sasheer_zamata.jpg"
     },
     {
-        "person": "Mike Birbiglia",
-        "bio": "Thank God For Jokes, Don't Think Twice",
-        "photoUrl": "http://www.hollywoodreporter.com/sites/default/files/imagecache/scale_crop_768_433/2014/08/mike_birbiglia.jpg"
+        "name": "Mike Birbiglia",
+        "knownFor": "Thank God For Jokes, Don't Think Twice",
+        "originalUrl": "http://www.hollywoodreporter.com/sites/default/files/imagecache/scale_crop_768_433/2014/08/mike_birbiglia.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/mike_birbiglia.jpg"
     },
     {
-        "person": "Michelle Wolf",
-        "bio": "Late Night with Seth Meyers, Daily Show ",
-        "photoUrl": "https://pbs.twimg.com/profile_images/378800000674397619/dd916420e08510c5430ac810627c268b.jpeg"
+        "name": "Michelle Wolf",
+        "knownFor": "Late Night with Seth Meyers, Daily Show ",
+        "originalUrl": "https://pbs.twimg.com/profile_images/378800000674397619/dd916420e08510c5430ac810627c268b.jpeg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/michelle_wolf.jpeg"
     },
     {
-        "person": "Billy Eichner",
-        "bio": "Billy on the Street, Difficult People",
-        "photoUrl": "http://awiderbridge.org/wp-content/uploads/2015/10/billy-on-the-street-main.jpg"
+        "name": "Billy Eichner",
+        "knownFor": "Billy on the Street, Difficult People",
+        "originalUrl": "http://awiderbridge.org/wp-content/uploads/2015/10/billy-on-the-street-main.jpg",
+        "photoUrl": "https://github.com/AOProductions/AO-Site/raw/master/public/img/poll/speakers/billy_eichner.jpg"
     }
 ]

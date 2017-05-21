@@ -1,5 +1,7 @@
 <template name="poll">
-  <h1>Poll</h1>
+    <div style="text-align: center;">
+        <h1 class="AO-h1">Poll</h1>
+    </div>
   <form class="poll-submit" style="text-align: center;">
       <p>
           It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
@@ -11,55 +13,18 @@
           {{#each processedArtists}}
               <div class="row">
                   {{#each row}}
-                  {{> item name=name photoUrl=photoUrl}}
+                  {{> photoItem name=name photoUrl=photoUrl}}
                   {{/each}}
               </div>
           {{/each}}
       {{/if}}
 
       <h3>What kind of music do you want to hear?</h3>
-      <div class="row">
-          <div class="col-md-2" >
-              <label for="hiphop">
-              <div class="card" style="border: 1px solid black;">
-                  <div class="card-block">
-                  <h4 class="card-title">Hip Hop</h4>
-                  <input name="hiphop" type="checkbox" id="hiphop" class="poll-item"/>
-                  </div>
-              </div>
-          </label>
-          </div>
-          <div class="col-md-2" >
-              <label for="rock">
-              <div class="card" style="border: 1px solid black;">
-                  <div class="card-block">
-                  <h4 class="card-title">rock</h4>
-                  <input name="rock" type="checkbox" id="rock" class="poll-item"/>
-                  </div>
-              </div>
-          </label>
-          </div>
-          <div class="col-md-2" >
-              <label for="electronic">
-              <div class="card" style="border: 1px solid black;">
-                  <div class="card-block">
-                  <h4 class="card-title">electronic</h4>
-                  <input name="electronic" type="checkbox" id="electronic" class="poll-item"/>
-                  </div>
-              </div>
-          </label>
-          </div>
-          <div class="col-md-2" >
-              <label for="bluegrass">
-              <div class="card" style="border: 1px solid black;">
-                  <div class="card-block">
-                  <h4 class="card-title">bluegrass</h4>
-                  <input name="bluegrass" type="checkbox" id="bluegrass" class="poll-item"/>
-                  </div>
-              </div>
-          </label>
-          </div>
-      </div>
+      <p>
+          {{#each genreQuestions }}
+            {{> textItem text=text }}
+          {{/each}}
+      </p>
 
     <h3>Possible speakers for Fall Speaker 2017?</h3>
     <h5>Choose as many as you like</h5>
@@ -67,7 +32,7 @@
         {{#each processedSpeakers}}
             <div class="row">
                 {{#each row}}
-                {{> item name=person photoUrl=photoUrl}}
+                {{> photoItem name=name photoUrl=photoUrl}}
                 {{/each}}
             </div>
         {{/each}}
@@ -130,92 +95,18 @@
     </div>
 
     <h3>What's your gender identity?</h3>
-    <div class="row">
-        <div class="col-md-2" >
-            <label for="hiphop">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Genderqueer or gender questioning</h4>
-                <input name="hiphop" type="checkbox" id="hiphop" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="rock">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Intersex, disorders of sex development, two-spirit, or other related terms</h4>
-                <input name="rock" type="checkbox" id="rock" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="electronic">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Man</h4>
-                <input name="electronic" type="checkbox" id="electronic" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="bluegrass">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Nonconforming</h4>
-                <input name="bluegrass" type="checkbox" id="bluegrass" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-    </div>
+    <p>
+        {{#each genderQuestions }}
+          {{> textItem text=text }}
+        {{/each}}
+    </p>
 
     <h3>Please identify your race</h3>
-    <div class="row">
-        <div class="col-md-2" >
-            <label for="American Indian or Alaskan Native">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">American Indian or Alaskan Native</h4>
-                <input name="American Indian or Alaskan Native" type="checkbox" id="hiphop" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Asian or Asian-American">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Asian or Asian-American</h4>
-                <input name="Asian or Asian-American" type="checkbox" id="rock" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Black or African-American">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Black or African-American</h4>
-                <input name="Black or African-American" type="checkbox" id="electronic" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Hispanic or Latinx">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Hispanic or Latinx</h4>
-                <input name="Hispanic or Latinx" type="checkbox" id="bluegrass" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-    </div>
+    <p>
+        {{#each raceQuestions }}
+          {{> textItem text=text }}
+        {{/each}}
+    </p>
 
     <h3>How was 2016 – 2017 A&O programming overall?</h3>
     <div class="form-group">
@@ -274,48 +165,11 @@
     </div>
 
     <h3>Which events did you enjoy?</h3>
-    <div class="row">
-        <div class="col-md-2" >
-            <label for="American Indian or Alaskan Native">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Ball (Jeremih & Aminé at Riviera Theatre)</h4>
-                <input name="Ball (Jeremih & Aminé at Riviera Theatre)" type="checkbox" id="hiphop" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)</h4>
-                <input name="Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)" type="checkbox" id="rock" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)</h4>
-                <input name="Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)" type="checkbox" id="electronic" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-        <div class="col-md-2" >
-            <label for="Hispanic or Latinx">
-            <div class="card" style="border: 1px solid black;">
-                <div class="card-block">
-                <h4 class="card-title">Hispanic or Latinx</h4>
-                <input name="Hispanic or Latinx" type="checkbox" id="bluegrass" class="poll-item"/>
-                </div>
-            </div>
-        </label>
-        </div>
-    </div>
+    <p>
+        {{#each favoriteEventQuestions }}
+          {{> textItem text=text }}
+        {{/each}}
+    </p>
 
     <h3>If you chose not to attend an event, tell us why:</h3>
     <div class="form-group">

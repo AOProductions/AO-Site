@@ -6,7 +6,14 @@ body {
     color: @color-text;
 }
 
-.grey-image {
+.selected-item {
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    border: 6px solid magenta;
+}
+
+.deselected-item {
     -webkit-filter: grayscale(100%);
     -webkit-transition: .25s ease-in-out;
     -moz-filter: grayscale(100%);
@@ -15,15 +22,4 @@ body {
     -o-transition: .25s ease-in-out;
     filter: grayscale(100%);
     border: none;
-}
-
-img {
-    -webkit-filter: grayscale(0%);
-    -webkit-transition: .25s ease-in-out;
-    -moz-filter: grayscale(0%);
-    -moz-transition: .25s ease-in-out;
-    -o-filter: grayscale(0%);
-    -o-transition: .25s ease-in-out;
-    filter: grayscale(0%);
-    border: 6px solid magenta;
 }
