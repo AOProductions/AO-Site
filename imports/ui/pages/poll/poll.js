@@ -2,6 +2,7 @@ import './poll.html';
 
 import '../../components/poll/photoItem/photoItem.js';
 import '../../components/poll/textItem/textItem.js';
+import '../../components/poll/radioGroup/radioGroup.js';
 
 Template.poll.helpers({
     artistList: function() {

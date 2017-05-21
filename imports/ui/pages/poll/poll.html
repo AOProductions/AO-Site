@@ -3,6 +3,7 @@
         <h1 class="AO-h1">Poll</h1>
     </div>
   <form class="poll-submit" style="text-align: center;">
+      {{> radioGroup}}
       <p>
           It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
       </p>
@@ -209,13 +210,13 @@
 
     <div class="form-group">
         <label for="improve"><h3>How can we improve?</h3></label>
-        <textarea class="form-control" id="improve" rows="5"></textarea>
+        <textarea class="form-control AO-type-input" id="improve" rows="5"></textarea>
     </div>
 
     <h3>If you would like us to follow up with you, please enter your email below.</h3>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control AO-type-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
     <div class="g-recaptcha" data-sitekey="6LekBCEUAAAAAKVxAEy-nszHUXINP3M6dVR4CaY6"></div>
-    <input type="submit" name="text"/>
+    <input class="AO-submit" type="submit" name="text"/>
   </form>
 </template>
