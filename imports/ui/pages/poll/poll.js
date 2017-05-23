@@ -141,9 +141,13 @@ Template.poll.helpers({
 });
 
 Template.poll.onCreated(function() {
-    this.artistList = new ReactiveVar(null);
-    this.speakerList = new ReactiveVar(null);
+    this.artistList = new ReactiveVar();
+    this.speakerList = new ReactiveVar();
     this.pollCompleted = new ReactiveVar(false);
+    this.timestamp = new ReactiveVar();
+
+    var time = this.timestamp;
+    time.set(new Date());
 
     var al = this.artistList;
     var sp = this.speakerList;
@@ -187,7 +191,15 @@ Template.poll.events({
             return pair.selected;
         }
 
-        console.log(artistSelectedPairs)
+
+        console.log(artistSelectedPairs);
+
+        var pollTimestamp = Template.instance().timestamp.get();
+        var currTimestamp = new Date();
+
+        console.log((currTimestamp.getTime() - pollTimestamp.getTime()) / 1000);
+        console.log(pollTimestamp);
+
         var completed = Template.instance().pollCompleted;
         completed.set(true);
 
