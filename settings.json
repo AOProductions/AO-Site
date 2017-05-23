@@ -1,1 +1,7 @@
-{}
+{
+    "galaxy.meteor.com": {
+        "env": {
+          "MONGO_URL": "mongodb://ao-admin:aoproductions@ds149511.mlab.com:49511/ao-poll-db"
+        }
+    }
+}
