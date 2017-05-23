@@ -2,237 +2,196 @@
     <div style="text-align: center;">
         <h1 class="AO-h1">Poll</h1>
     </div>
+    {{#if pollCompleted}}
+        <h1>Thank you!</h1>
+        <h3>Your response has been recorded!</h3>
+    {{else}}
   <form class="poll-submit" style="text-align: center;">
-      {{> radioGroup}}
-      <p>
-          It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
-      </p>
+      <div class="poll-group">
+          <p>
+              It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
+          </p>
+      </div>
 
-      <h3>Who would you like to see at Blowout?</h3>
-      <h5>Choose as many as you like</h5>
-      {{#if processedArtists}}
-          {{#each processedArtists}}
+      <hr />
+
+      <div class="poll-group">
+          <h3>Who would you like to see at Blowout?</h3>
+          <h5>Choose as many as you like</h5>
+          {{#each (buildRows artistList 4)}}
+              <div class="row" >
+                  {{#each row}}
+                  {{> photoItem name=name photoUrl=photoUrl}}
+                  {{/each}}
+              </div>
+          {{/each}}
+      </div>
+
+      <hr />
+
+      <div class="poll-group">
+          <h3>What kind of music do you want to hear?</h3>
+              {{#each (buildRows genreQuestions 2)}}
+              <div class="row">
+                  {{#each row}}
+                      {{> textItem text=text }}
+                  {{/each}}
+              </div>
+              {{/each}}
+      </div>
+
+      <hr />
+
+      <div class="poll-group">
+          <h3>Possible speakers for Fall Speaker 2017?</h3>
+          <h5>Choose as many as you like</h5>
+          {{#each (buildRows speakerList 4)}}
               <div class="row">
                   {{#each row}}
                   {{> photoItem name=name photoUrl=photoUrl}}
                   {{/each}}
               </div>
           {{/each}}
-      {{/if}}
+      </div>
 
-      <h3>What kind of music do you want to hear?</h3>
-      <p>
-          {{#each genreQuestions }}
-            {{> textItem text=text }}
-          {{/each}}
-      </p>
+    <hr />
 
-    <h3>Possible speakers for Fall Speaker 2017?</h3>
-    <h5>Choose as many as you like</h5>
-    {{#if processedSpeakers}}
-        {{#each processedSpeakers}}
+    <div class="poll-group">
+        <h3>Where do you live?</h3>
+        {{#each (buildRows housingQuestions 2)}}
             <div class="row">
                 {{#each row}}
-                {{> photoItem name=name photoUrl=photoUrl}}
+                {{> radioItem name="housingGroup" text=text}}
                 {{/each}}
             </div>
         {{/each}}
-    {{/if}}
-
-    <div class="form-group">
-        <h3>Where do you live?</h3>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios1" value="On-Campus North" checked>
-            On-Campus North
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios2" value="On Campus South">
-            On Campus South
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios3" value="Off Campus North">
-            Off Campus North
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios" id="exampleRadios4" value="Off Campus South">
-            Off Campus South
-          </label>
-        </div>
     </div>
 
-    <h3>What year are you?</h3>
-    <div class="form-group">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios21" value="option21" checked>
-            Freshman
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios22" value="option22">
-            Sophomore
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios23" value="option23">
-            Junior
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input poll-item" type="radio" name="exampleRadios2" id="exampleRadios24" value="option24">
-            Senior
-          </label>
-        </div>
-    </div>
+    <hr />
 
-    <h3>What's your gender identity?</h3>
-    <p>
-        {{#each genderQuestions }}
-          {{> textItem text=text }}
+    <div class="poll-group">
+        <h3>What year are you?</h3>
+        {{#each (buildRows yearQuestions 2)}}
+            <div class="row">
+                {{#each row}}
+                {{> radioItem name="yearGroup" text=text}}
+                {{/each}}
+            </div>
         {{/each}}
-    </p>
+    </div>
 
-    <h3>Please identify your race</h3>
-    <p>
-        {{#each raceQuestions }}
-          {{> textItem text=text }}
+
+    <hr />
+
+    <div class="poll-group">
+        <h3>What's your gender identity?</h3>
+            {{#each (buildRows genderQuestions 2)}}
+            <div class="row">
+                {{#each row}}
+                    {{> textItem text=text }}
+                {{/each}}
+            </div>
+            {{/each}}
+    </div>
+
+
+    <hr />
+
+    <div class="poll-group">
+        <h3>Please identify your race</h3>
+        {{#each (buildRows raceQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> textItem text=text }}
+            {{/each}}
+        </div>
         {{/each}}
-    </p>
-
-    <h3>How was 2016 – 2017 A&O programming overall?</h3>
-    <div class="form-group">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios31" value="option21" checked>
-            1
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios32" value="option22">
-            2
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios33" value="option23">
-            3
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios34" value="option24">
-            4
-          </label>
-        </div>
     </div>
 
-    <h3>Please choose your favorite event. If you have multiple favorites, the next question will allow you to select all of them.</h3>
-    <div class="form-group">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios41" value="Ball (Jeremih & Aminé at Riviera Theatre)" checked>
-            Ball (Jeremih & Aminé at Riviera Theatre)
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios42" value="Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)">
-            Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios43" value="Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)">
-            Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios44" value="Winter Q&A Speaker (Samantha Bee & Rebecca Traister)">
-            Winter Q&A Speaker (Samantha Bee & Rebecca Traister)
-          </label>
-        </div>
-    </div>
+    <hr />
 
-    <h3>Which events did you enjoy?</h3>
-    <p>
-        {{#each favoriteEventQuestions }}
-          {{> textItem text=text }}
+    <div class="poll-group">
+        <h3>How was 2016 – 2017 A&O programming overall?</h3>
+        {{#each (buildRows starsQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> radioItem name="starsGroup" text=text }}
+            {{/each}}
+        </div>
         {{/each}}
-    </p>
+    </div>
 
-    <h3>If you chose not to attend an event, tell us why:</h3>
-    <div class="form-group">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios41" value="Answer n/a: I did attend events" checked>
-            <p>
-                Answer n/a: I did attend events
-            </p>
-          </label>
+    <hr />
+
+    <div class="poll-group">
+        <h3>Please choose your favorite event. If you have multiple favorites, the next question will allow you to select all of them.</h3>
+        {{#each (buildRows favoriteEventQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> radioItem name="favoriteGroup" text=text }}
+            {{/each}}
         </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios42" value="Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)">
-            <p>
-                Blowout (Young Thug & Kehlani at Welsh-Ryan Arena)
-            </p>
-          </label>
+        {{/each}}
+    </div>
+
+    <hr />
+
+    <div class="poll-group">
+        <h3>Which events did you enjoy?</h3>
+        {{#each (buildRows favoriteEventQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> textItem text=text }}
+            {{/each}}
         </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios43" value="Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)">
-            <p>
-                Fall Lineup (Finding Dory, The Nice Guys, The Jungle Book, Southside with You)
-            </p>
-          </label>
+        {{/each}}
+    </div>
+
+    <hr />
+
+    <div class="poll-group">
+        <h3>If you chose not to attend an event, tell us why:</h3>
+        {{#each (buildRows notAttendQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> radioItem name="notAttendGroup" text=text }}
+            {{/each}}
         </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios44" value="Winter Q&A Speaker (Samantha Bee & Rebecca Traister)">
-            <p>
-                Winter Q&A Speaker (Samantha Bee & Rebecca Traister)
-            </p>
-          </label>
+        {{/each}}
+    </div>
+
+    <hr />
+
+    <div class="poll-group">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="improve"><h3>How can we improve?</h3></label>
+                <textarea class="form-control AO-type-input" id="improve" rows="5"></textarea>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label for="improve"><h3>How can we improve?</h3></label>
-            <textarea class="form-control AO-type-input" id="improve" rows="5"></textarea>
+    <hr />
+
+    <div class="poll-group">
+        <div class="row">
+            <div class="form group col-md-12">
+                <h3>If you would like us to follow up with you, please enter your email below.</h3>
+                <input type="email" class="form-control AO-type-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form group col-md-12">
-            <h3>If you would like us to follow up with you, please enter your email below.</h3>
-            <input type="email" class="form-control AO-type-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-    </div>
+    <hr />
 
-    <div class="row">
-        <div class="form-group col-md-12">
-            <div class="g-recaptcha" data-sitekey="6LekBCEUAAAAAKVxAEy-nszHUXINP3M6dVR4CaY6" style="display: inline-block;"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <input class="AO-submit" type="submit" name="text"/>
+    <div class="poll-group">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <input class="AO-submit" type="submit" name="text"/>
+            </div>
         </div>
     </div>
 
   </form>
+  {{/if}}
 </template>

@@ -2,7 +2,7 @@ import './poll.html';
 
 import '../../components/poll/photoItem/photoItem.js';
 import '../../components/poll/textItem/textItem.js';
-import '../../components/poll/radioGroup/radioGroup.js';
+import '../../components/poll/radioItem/radioItem.js';
 
 Template.poll.helpers({
     artistList: function() {
@@ -10,43 +10,19 @@ Template.poll.helpers({
         // can access showExtraFields from it.
         return Template.instance().artistList.get();
     },
-    // The following function converts a list of Artists to a list of rows,
-    // where each row contains 4 artist elements. This is used in addition with the
-    // bootstrap rows to ensure responsiveness across devices
-    processedArtists: function() {
-        var artistList = Template.instance().artistList.get()
-        if(artistList){
-            row_list = [];
-            row = {};
-            row.row = [];
-            for(var i = 0; i<artistList.length; i++){
-                row.row.push(artistList[i])
-                if((i+1) % 4 == 0){
-                    row_list.push(row);
-                    row = {row: []}
-                }
-            }
-            row_list.push(row);
-        }
-        return row_list;
-    },
     speakerList: function() {
         // Here we get our template instance from Template.instance() and
         // can access showExtraFields from it.
         return Template.instance().speakerList.get();
     },
-    // The following function converts a list of Artists to a list of rows,
-    // where each row contains 4 artist elements. This is used in addition with the
-    // bootstrap rows to ensure responsiveness across devices
-    processedSpeakers: function() {
-        var speakerList = Template.instance().speakerList.get()
-        if(speakerList){
-            row_list = [];
+    buildRows: function(itemList, numPerRow) {
+        row_list = [];
+        if(itemList){
             row = {};
             row.row = [];
-            for(var i = 0; i<speakerList.length; i++){
-                row.row.push(speakerList[i])
-                if((i+1) % 4 == 0){
+            for(var i = 0; i<itemList.length; i++){
+                row.row.push(itemList[i])
+                if((i+1) % numPerRow == 0){
                     row_list.push(row);
                     row = {row: []}
                 }
@@ -116,12 +92,58 @@ Template.poll.helpers({
             {text: "I did not attend any"}
         ];
         return favoriteEventQuestions;
+    },
+    housingQuestions: function() {
+        housingQuestions = [
+            {text: "On Campus North"},
+            {text: "On Campus South"},
+            {text: "Off Campus North"},
+            {text: "Off Campus South"}
+        ];
+        return housingQuestions;
+    },
+    yearQuestions: function() {
+        yearQuestions = [
+            {text: "Freshman"},
+            {text: "Sophomore"},
+            {text: "Junior"},
+            {text: "Senior"}
+        ];
+        return yearQuestions;
+    },
+    starsQuestions: function() {
+        starsQuestions = [
+            {text: "1"},
+            {text: "2"},
+            {text: "3"},
+            {text: "4"},
+            {text: "5"}
+        ];
+        return starsQuestions;
+    },
+    notAttendQuestions: function() {
+        yearQuestions = [
+            {text: "Answer n/a: I did attend events"},
+            {text: "Did not hear about the event"},
+            {text: "Did not enjoy previous A&O event"},
+            {text: "Time conflicting events"},
+            {text: "Did not like the artists"},
+            {text: "Too expensive"},
+            {text: "Too far of a location"},
+            {text: "Did not know who the artists/celebrities were"},
+            {text: "Do not personally like A&O"}
+        ];
+        return yearQuestions;
+    },
+    pollCompleted: function() {
+        return Template.instance().pollCompleted.get();
     }
 });
 
 Template.poll.onCreated(function() {
     this.artistList = new ReactiveVar(null);
     this.speakerList = new ReactiveVar(null);
+    this.pollCompleted = new ReactiveVar(false);
 
     var al = this.artistList;
     var sp = this.speakerList;
@@ -165,7 +187,9 @@ Template.poll.events({
             return pair.selected;
         }
 
-        console.log(artistSelectedPairs);
+        console.log(artistSelectedPairs)
+        var completed = Template.instance().pollCompleted;
+        completed.set(true);
 
     },
     'click .poll-item' (event) {
@@ -181,7 +205,6 @@ Template.poll.events({
     'click .text-item' (event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log(event.currentTarget.getElementsByClassName('poll-item')[0].checked);
         event.currentTarget.getElementsByClassName('poll-item')[0].checked = !event.currentTarget.getElementsByClassName('poll-item')[0].checked;
 
         if(event.currentTarget.getElementsByClassName('poll-item')[0].checked){
@@ -189,5 +212,10 @@ Template.poll.events({
         } else {
             event.currentTarget.classList.remove('selected-item');
         }
+    },
+    'change .radio-item' (event) {
+        var name = event.target.name;
+        $("input[type='radio'][name='" + event.target.name + "']:checked").parent().parent().addClass('selected-item');
+        $("input[type='radio'][name='" + event.target.name + "']:not(:checked)").parent().parent().removeClass('selected-item');
     }
 });
