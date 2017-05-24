@@ -18,7 +18,7 @@
       <div class="poll-group">
           <h3>Who would you like to see at Blowout?</h3>
           <h5>Choose as many as you like</h5>
-          {{#each (buildRows artistList 4)}}
+          {{#each (buildRows artistList 3)}}
               <div class="row" >
                   {{#each row}}
                   {{> photoItem name=name photoUrl=photoUrl}}
@@ -45,7 +45,7 @@
       <div class="poll-group">
           <h3>Possible speakers for Fall Speaker 2017?</h3>
           <h5>Choose as many as you like</h5>
-          {{#each (buildRows speakerList 4)}}
+          {{#each (buildRows speakerList 3)}}
               <div class="row">
                   {{#each row}}
                   {{> photoItem name=name photoUrl=photoUrl}}
