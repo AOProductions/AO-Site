@@ -5,6 +5,8 @@ import '/imports/startup/both';
 
 Meteor.methods({
   insertResponse: function(response) {
+      // To prevent spam responses
+      // If the user fills out the poll quicker than 30 seconds, assume they're a bot and ignore the response
       new_response = response;
       new_response.endTimestamp = new Date();
 
