@@ -195,12 +195,14 @@ Template.poll.events({
             var checkedElements = Array.from(poll_groups[i].getElementsByClassName('poll-item'));
             question["response"] = []
 
-            var questionItem = {}
+
             if(checkedElements.length == 1){
+                var questionItem = {}
                 questionItem.value = checkedElements[0].value
                 question["response"].push(questionItem);
             } else {
                 for(var j = 0; j<checkedElements.length; j++){
+                    var questionItem = {}
                     questionItem.name = checkedElements[j].getAttribute('data-responsevalue')
                     questionItem.value = checkedElements[j].checked;
                     question["response"].push(questionItem);
@@ -210,7 +212,7 @@ Template.poll.events({
             response.responses.push(question);
         }
 
-        console.log(response);
+        Meteor.call('insertResponse', response);
 
         var completed = Template.instance().pollCompleted;
         completed.set(true);

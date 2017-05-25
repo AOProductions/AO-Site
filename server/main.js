@@ -4,10 +4,10 @@ import '/imports/startup/server';
 import '/imports/startup/both';
 
 Meteor.methods({
-  insertResponse(response) {
-      new_response = {}
-      new_response.timestamp = new Date();
-      new_response.response = response;
+  insertResponse: function(response) {
+      new_response = response;
+      new_response.endTimestamp = new Date();
+      console.log(new_response);
       PollResponses.insert(new_response);
   },
 
