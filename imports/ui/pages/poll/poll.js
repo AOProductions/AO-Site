@@ -175,36 +175,48 @@ Template.poll.events({
     'submit .poll-submit' (event) {
         // Prevent default browser form submit
         event.preventDefault();
-        var elements = document.getElementsByClassName('poll-item');
-        var artistSelectedPairs = [];
+        var response = {}
 
-        for (var i = 0; i < elements.length; i++) {
-            var key_val = {
-                name: elements[i].name,
-                selected: elements[i].checked
-            }
-
-            artistSelectedPairs.push(key_val);
-        }
-
-        function showSelected(pair) {
-            return pair.selected;
-        }
-
-
-        console.log(artistSelectedPairs);
+        var poll_groups = Array.from(document.getElementsByClassName('poll-group'));
+        console.log(poll_groups.length);
 
         var pollTimestamp = Template.instance().timestamp.get();
         var currTimestamp = new Date();
 
-        console.log((currTimestamp.getTime() - pollTimestamp.getTime()) / 1000);
-        console.log(pollTimestamp);
+        response.startTimestamp = pollTimestamp;
+
+        response.responses = [];
+
+        for (var i = 0; i<poll_groups.length; i++){
+            var question = {};
+            var question_title = poll_groups[i].getElementsByClassName('poll-question-title')[0].innerText;
+            question["question"] = question_title;
+
+            var checkedElements = Array.from(poll_groups[i].getElementsByClassName('poll-item'));
+            question["response"] = []
+
+            var questionItem = {}
+            if(checkedElements.length == 1){
+                questionItem.value = checkedElements[0].value
+                question["response"].push(questionItem);
+            } else {
+                for(var j = 0; j<checkedElements.length; j++){
+                    questionItem.name = checkedElements[j].getAttribute('data-responsevalue')
+                    questionItem.value = checkedElements[j].checked;
+                    question["response"].push(questionItem);
+
+                }
+            }
+            response.responses.push(question);
+        }
+
+        console.log(response);
 
         var completed = Template.instance().pollCompleted;
         completed.set(true);
 
     },
-    'click .poll-item' (event) {
+    'click .photo-item' (event) {
         var name = event.target.name;
         if ($('img[data-name="' + name + '"]').hasClass('selected-item')){
             $('img[data-name="' + name + '"]').addClass('deselected-item');

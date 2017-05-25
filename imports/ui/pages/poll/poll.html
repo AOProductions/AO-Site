@@ -7,16 +7,14 @@
         <h3>Your response has been recorded!</h3>
     {{else}}
   <form class="poll-submit" style="text-align: center;">
-      <div class="poll-group">
-          <p>
-              It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
-          </p>
-      </div>
+      <p>
+          It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
+      </p>
 
       <hr />
 
       <div class="poll-group">
-          <h3>Who would you like to see at Blowout?</h3>
+          <h3 class="poll-question-title">Who would you like to see at Blowout?</h3>
           <h5>Choose as many as you like</h5>
           {{#each (buildRows artistList 3)}}
               <div class="row" >
@@ -30,7 +28,7 @@
       <hr />
 
       <div class="poll-group">
-          <h3>What kind of music do you want to hear?</h3>
+          <h3 class="poll-question-title">What kind of music do you want to hear?</h3>
               {{#each (buildRows genreQuestions 2)}}
               <div class="row">
                   {{#each row}}
@@ -43,7 +41,7 @@
       <hr />
 
       <div class="poll-group">
-          <h3>Possible speakers for Fall Speaker 2017?</h3>
+          <h3 class="poll-question-title">Possible speakers for Fall Speaker 2017?</h3>
           <h5>Choose as many as you like</h5>
           {{#each (buildRows speakerList 3)}}
               <div class="row">
@@ -57,7 +55,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>Where do you live?</h3>
+        <h3 class="poll-question-title">Where do you live?</h3>
         {{#each (buildRows housingQuestions 2)}}
             <div class="row">
                 {{#each row}}
@@ -70,7 +68,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>What year are you?</h3>
+        <h3 class="poll-question-title">What year are you?</h3>
         {{#each (buildRows yearQuestions 2)}}
             <div class="row">
                 {{#each row}}
@@ -84,7 +82,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>What's your gender identity?</h3>
+        <h3 class="poll-question-title">What's your gender identity?</h3>
             {{#each (buildRows genderQuestions 2)}}
             <div class="row">
                 {{#each row}}
@@ -98,7 +96,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>Please identify your race</h3>
+        <h3 class="poll-question-title">Please identify your race</h3>
         {{#each (buildRows raceQuestions 2)}}
         <div class="row">
             {{#each row}}
@@ -111,7 +109,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>How was 2016 – 2017 A&O programming overall?</h3>
+        <h3 class="poll-question-title">How was 2016 – 2017 A&O programming overall?</h3>
         {{#each (buildRows starsQuestions 2)}}
         <div class="row">
             {{#each row}}
@@ -124,7 +122,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>Please choose your favorite event. If you have multiple favorites, the next question will allow you to select all of them.</h3>
+        <h3 class="poll-question-title">Please choose your favorite event. If you have multiple favorites, the next question will allow you to select all of them.</h3>
         {{#each (buildRows favoriteEventQuestions 2)}}
         <div class="row">
             {{#each row}}
@@ -137,7 +135,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>Which events did you enjoy?</h3>
+        <h3 class="poll-question-title">Which events did you enjoy?</h3>
         {{#each (buildRows favoriteEventQuestions 2)}}
         <div class="row">
             {{#each row}}
@@ -150,7 +148,7 @@
     <hr />
 
     <div class="poll-group">
-        <h3>If you chose not to attend an event, tell us why:</h3>
+        <h3 class="poll-question-title">If you chose not to attend an event, tell us why:</h3>
         {{#each (buildRows notAttendQuestions 2)}}
         <div class="row">
             {{#each row}}
@@ -165,8 +163,8 @@
     <div class="poll-group">
         <div class="row">
             <div class="form-group col-md-12">
-                <label for="improve"><h3>How can we improve?</h3></label>
-                <textarea class="form-control AO-type-input" id="improve" rows="5"></textarea>
+                <label for="improve"><h3 class="poll-question-title">How can we improve?</h3></label>
+                <textarea class="form-control AO-type-input poll-item" id="improveInput" rows="5"></textarea>
             </div>
         </div>
     </div>
@@ -176,19 +174,17 @@
     <div class="poll-group">
         <div class="row">
             <div class="form group col-md-12">
-                <h3>If you would like us to follow up with you, please enter your email below.</h3>
-                <input type="email" class="form-control AO-type-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <h3 class="poll-question-title">If you would like us to follow up with you, please enter your email below.</h3>
+                <input type="email" class="form-control AO-type-input poll-item" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
         </div>
     </div>
 
     <hr />
 
-    <div class="poll-group">
-        <div class="row">
-            <div class="form-group col-md-12">
-                <input class="AO-submit" type="submit" name="text"/>
-            </div>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <input class="AO-submit" type="submit" name="text"/>
         </div>
     </div>
 
