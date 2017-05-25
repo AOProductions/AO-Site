@@ -192,7 +192,7 @@ Template.poll.events({
         event.preventDefault();
         var response = {}
 
-        // Grab all the poll groups from the form
+        // Grab all the 'poll-group' items from the form
         var poll_groups = Array.from(document.getElementsByClassName('poll-group'));
 
         // Grab the time the user started the poll
@@ -205,7 +205,7 @@ Template.poll.events({
         for (var i = 0; i<poll_groups.length; i++){
             var question = {};
 
-            // Grab the 'poll-group' title and store it
+            // Grab the poll-group's title and store it
             var question_title = poll_groups[i].getElementsByClassName('poll-question-title')[0].innerText;
             question["question"] = question_title;
 
@@ -223,7 +223,7 @@ Template.poll.events({
                 // If the pollGroup is multiple selection
                 for(var j = 0; j<pollGroupElements.length; j++){
                     var questionItem = {}
-                    // the input's data-responsevalue field is the value we want to store
+                    // the <input>'s data-responsevalue field is the value we want to store
                     // grab it and its corresponding value, then store it in the question object
                     questionItem.name = pollGroupElements[j].getAttribute('data-responsevalue')
                     questionItem.value = pollGroupElements[j].checked;
