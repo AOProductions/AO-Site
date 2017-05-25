@@ -2,7 +2,10 @@
     <div class="col-md-4" >
         <label for="{{name}}">
         <div class="card" >
+        <!-- If the object passed to the photoItem component has a photoUrl field, load that image -->
         {{#if photoUrl}}
+        <!-- When image width and height are set to 100%, bootstrap columns flicker on selection -->
+        <!-- Leaving them at something less than 100% gives space and prevents flicker -->
             <img class="card-img-top grey-image deselected-item" src="{{photoUrl}}" alt="Card image cap" style="width: 95%; height: 95%;" data-name="{{name}}">
         {{else}}
             <img class="card-img-top grey-image deselected-item" src="http://thatgrapejuice.net/wp-content/uploads/2016/11/kanye-west-zoom-e2f2f1be-34d2-4beb-9aa3-345303935037.jpg" alt="Card image cap" style="width: 100%; height: 100%;" data-name="{{name}}">

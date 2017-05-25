@@ -7,8 +7,16 @@ Meteor.methods({
   insertResponse: function(response) {
       new_response = response;
       new_response.endTimestamp = new Date();
-      console.log(new_response);
-      PollResponses.insert(new_response);
+
+      var threshold = 30;
+      timeDiff = (new_response.endTimestamp.getTime() - new_response.startTimestamp.getTime()) / 1000;
+      console.log(timeDiff);
+      if(timeDiff < threshold){
+          console.log("Time to take poll too short, ignoring response");
+      } else {
+          console.log("Took longer than 30 seconds, valid response");
+          PollResponses.insert(new_response);
+      }
   },
 
   logArtists(){

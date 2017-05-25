@@ -178,7 +178,6 @@ Template.poll.events({
         var response = {}
 
         var poll_groups = Array.from(document.getElementsByClassName('poll-group'));
-        console.log(poll_groups.length);
 
         var pollTimestamp = Template.instance().timestamp.get();
         var currTimestamp = new Date();
@@ -216,32 +215,5 @@ Template.poll.events({
 
         var completed = Template.instance().pollCompleted;
         completed.set(true);
-
-    },
-    'click .photo-item' (event) {
-        var name = event.target.name;
-        if ($('img[data-name="' + name + '"]').hasClass('selected-item')){
-            $('img[data-name="' + name + '"]').addClass('deselected-item');
-            $('img[data-name="' + name + '"]').removeClass('selected-item');
-        } else {
-            $('img[data-name="' + name + '"]').addClass('selected-item');
-            $('img[data-name="' + name + '"]').removeClass('deselected-item');
-        }
-    },
-    'click .text-item' (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.currentTarget.getElementsByClassName('poll-item')[0].checked = !event.currentTarget.getElementsByClassName('poll-item')[0].checked;
-
-        if(event.currentTarget.getElementsByClassName('poll-item')[0].checked){
-            event.currentTarget.classList.add('selected-item');
-        } else {
-            event.currentTarget.classList.remove('selected-item');
-        }
-    },
-    'change .radio-item' (event) {
-        var name = event.target.name;
-        $("input[type='radio'][name='" + event.target.name + "']:checked").parent().parent().addClass('selected-item');
-        $("input[type='radio'][name='" + event.target.name + "']:not(:checked)").parent().parent().removeClass('selected-item');
     }
 });

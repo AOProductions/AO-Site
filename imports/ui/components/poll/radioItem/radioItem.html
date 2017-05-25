@@ -1,5 +1,6 @@
 <template name="radioItem">
     <div class="col-md-6 col-sm-12">
+    <!-- width set to 100% so clickbox fills column and isn't just on the h4 text -->
     <label class="radio-inline" style="width: 100%;">
         <input type="radio" class="radio-item poll-item" name="{{ name }}" id="radio1" value="{{ text }}" style="display: none;" data-responsevalue="{{ text }}"/>
         <h4 class="card-title AO-h4">{{ text }}</h4>
