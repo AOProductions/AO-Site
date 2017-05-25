@@ -5,16 +5,20 @@ import '../../components/poll/textItem/textItem.js';
 import '../../components/poll/radioItem/radioItem.js';
 
 Template.poll.helpers({
-    artistList: function() {
-        // Here we get our template instance from Template.instance() and
-        // can access showExtraFields from it.
-        return Template.instance().artistList.get();
-    },
-    speakerList: function() {
-        // Here we get our template instance from Template.instance() and
-        // can access showExtraFields from it.
-        return Template.instance().speakerList.get();
-    },
+    // This function takes a list of objects, then builds a list of rows with numPerRow object per rows
+    // Used to build rows that fit into Bootstrap's row/column format
+    /*
+
+    ~Example~
+
+    Input:
+    ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+    Output:
+    [{ row: [ "one", "two", "three" ] },
+     { row: [ "four", "five", "six" ] },
+     { row: [ "seven", "eight", "nine"] }]
+    */
     buildRows: function(itemList, numPerRow) {
         row_list = [];
         if(itemList){
@@ -30,6 +34,12 @@ Template.poll.helpers({
             row_list.push(row);
         }
         return row_list;
+    },
+    artistList: function() {
+        return Template.instance().artistList.get();
+    },
+    speakerList: function() {
+        return Template.instance().speakerList.get();
     },
     genderQuestions: function() {
         genderList = [
@@ -141,10 +151,16 @@ Template.poll.helpers({
 });
 
 Template.poll.onCreated(function() {
+    // Initialize variables used in the poll:
+    // timestamp = The time the user first loads the poll
+    // artistList = List of artists and their images
+    // speakerList = List of speakers and their images
+    // pollCompleted = Has the user finished the poll yet?
+
+    this.timestamp = new ReactiveVar();
     this.artistList = new ReactiveVar();
     this.speakerList = new ReactiveVar();
     this.pollCompleted = new ReactiveVar(false);
-    this.timestamp = new ReactiveVar();
 
     var time = this.timestamp;
     time.set(new Date());
@@ -152,8 +168,7 @@ Template.poll.onCreated(function() {
     var al = this.artistList;
     var sp = this.speakerList;
 
-    // Wooooooooooowwwwwwwww
-    // https://github.com/meteor/blaze/issues/140
+    // The following functions grab the artists and speakers from the database
     Meteor.call('logArtists', function(err, response) {
         if (err) {
             console.log(err);
@@ -177,40 +192,50 @@ Template.poll.events({
         event.preventDefault();
         var response = {}
 
+        // Grab all the poll groups from the form
         var poll_groups = Array.from(document.getElementsByClassName('poll-group'));
 
+        // Grab the time the user started the poll
         var pollTimestamp = Template.instance().timestamp.get();
-        var currTimestamp = new Date();
-
         response.startTimestamp = pollTimestamp;
 
         response.responses = [];
 
+        // Iterate through each poll group and add the <input> fields and their values to the 'response' dictionary
         for (var i = 0; i<poll_groups.length; i++){
             var question = {};
+
+            // Grab the 'poll-group' title and store it
             var question_title = poll_groups[i].getElementsByClassName('poll-question-title')[0].innerText;
             question["question"] = question_title;
 
-            var checkedElements = Array.from(poll_groups[i].getElementsByClassName('poll-item'));
+            // grab all the poll-items within the pollGroup
+            var pollGroupElements = Array.from(poll_groups[i].getElementsByClassName('poll-item'));
+
             question["response"] = []
 
-
-            if(checkedElements.length == 1){
+            // If the pollGroup only has one input (textField, emailField, etc.)
+            if(pollGroupElements.length == 1){
                 var questionItem = {}
-                questionItem.value = checkedElements[0].value
+                questionItem.value = pollGroupElements[0].value
                 question["response"].push(questionItem);
             } else {
-                for(var j = 0; j<checkedElements.length; j++){
+                // If the pollGroup is multiple selection
+                for(var j = 0; j<pollGroupElements.length; j++){
                     var questionItem = {}
-                    questionItem.name = checkedElements[j].getAttribute('data-responsevalue')
-                    questionItem.value = checkedElements[j].checked;
+                    // the input's data-responsevalue field is the value we want to store
+                    // grab it and its corresponding value, then store it in the question object
+                    questionItem.name = pollGroupElements[j].getAttribute('data-responsevalue')
+                    questionItem.value = pollGroupElements[j].checked;
                     question["response"].push(questionItem);
 
                 }
             }
+            // Add the results from the poll-group to the overall 'response' object
             response.responses.push(question);
         }
 
+        // Store the response
         Meteor.call('insertResponse', response);
 
         var completed = Template.instance().pollCompleted;

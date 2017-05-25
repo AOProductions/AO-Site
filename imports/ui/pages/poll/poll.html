@@ -2,10 +2,12 @@
     <div style="text-align: center;">
         <h1 class="AO-h1">Poll</h1>
     </div>
+    <!-- After user completed the poll, pollCompleted will be true -->
     {{#if pollCompleted}}
         <h1>Thank you!</h1>
         <h3>Your response has been recorded!</h3>
     {{else}}
+    <!-- Poll consists of one large form made up of 'poll-group' items. Check the poll.js for more info on how everything works -->
   <form class="poll-submit" style="text-align: center;">
       <p>
           It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
