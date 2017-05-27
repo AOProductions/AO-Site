@@ -123,11 +123,11 @@ Template.poll.helpers({
     },
     starsQuestions: function() {
         starsQuestions = [
-            {text: "1 (Excellent!)"},
-            {text: "2 (Pretty Good)"},
-            {text: "3 (Not Too Shabby)"},
-            {text: "4 (Not a Fan)"},
-            {text: "5 (Awful)"}
+            {text: "5 (Excellent!)"},
+            {text: "4 (Pretty Good)"},
+            {text: "3 (Okay / Not Too Shabby)"},
+            {text: "2 (Didn't Like It)"},
+            {text: "1 (Awful!)"}
         ];
         return starsQuestions;
     },
