@@ -1,20 +1,24 @@
 <template name="poll">
-    <div style="text-align: center;">
-        <h1 class="AO-h1">Poll</h1>
-    </div>
-    <!-- After user completed the poll, pollCompleted will be true -->
-    {{#if pollCompleted}}
+
+      <h1 class="AO-h1">Poll</h1>
+
+      <!-- After user completed the poll, pollCompleted will be true -->
+      {{#if pollCompleted}}
         <h1>Thank you!</h1>
         <h3>Your response has been recorded!</h3>
-    {{else}}
-    <!-- Poll consists of one large form made up of 'poll-group' items. Check the poll.js for more info on how everything works -->
-  <form class="poll-submit" style="text-align: center;">
-      <p>
-          It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
+      {{else}}
+
+
+      <p class = "AO-p">
+        It's time to choose the A&O Blowout Artists and Fall Speaker. Who do you want? Thank you for taking the time to take this poll. We’d also like to thank AMASE, College Democrats, CTSS, FMO, Happiness Club, Inspire Media, Mee-Ow, MIXED, NCDC, NSTV, NUWFA, One Book One Northwestern, Rainbow Alliance, SASA, SEED, SES, URSA, and Northwestern students for their hard work and dedication in making these events possible.
       </p>
+      <hr/>
 
-      <hr />
 
+
+
+    <!-- Poll consists of one large form made up of 'poll-group' items. Check the poll.js for more info on how everything works -->
+  <form class="poll-submit">
       <div class="poll-group">
           <h3 class="poll-question-title">Who would you like to see at Blowout?</h3>
           <h5>Choose as many as you like</h5>
@@ -165,8 +169,8 @@
     <div class="poll-group">
         <div class="row">
             <div class="form-group col-md-12">
-                <label for="improve"><h3 class="poll-question-title">How can we improve?</h3></label>
-                <textarea class="form-control AO-type-input poll-item" id="improveInput" rows="5"></textarea>
+                <label for="improve"><h3 class="poll-question-title">How can we improve?</h3></label><br>
+                <input type = "text" placeholder="Things A&O Should Do Differently" class=" AO-type-input poll-item">
             </div>
         </div>
     </div>

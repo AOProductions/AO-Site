@@ -1,0 +1,157 @@
+@font-face {
+	src: url("futura/ao-heavy.otf");
+	font-family: "FuturaHeavy"
+}
+
+@font-face {
+	src: url("futura/ao-bold.otf");
+	font-family: "FuturaBold"
+}
+
+@font-face {
+	src: url("futura/ao-light.otf");
+	font-family: "FuturaLight"
+}
+
+@font-face {
+	src: url("futura/ao-condensed.otf");
+	font-family: "FuturaCondensed"
+}
+
+
+* {
+	font-family: "FuturaHeavy";
+	color: black;
+}
+
+.AO-h1, .AO-h2, .AO-h3, .AO-h4, .AO-h5, .AO-h6 {
+	font-family: "FuturaBold";
+}
+
+.AO-h1 {
+	font-size: 48px;
+}
+
+.AO-h2 {
+	font-size: 36px;
+}
+
+.AO-h3 {
+	font-size: 24px;
+	font-family: "FuturaLight";
+}
+
+.AO-h4 {
+	font-size: 18px;
+	font-family: "FuturaLight";
+}
+
+.AO-h5 {
+	font-size: 15px;
+	font-family: "FuturaLight";
+}
+
+.AO-h6 {
+	font-size: 10px;
+	font-family: "FuturaLight";
+}
+
+.AO-p {
+	font-family: "FuturaLight";
+	font-size: 16px;
+}
+
+/* //////////////////////// INPUTS ////////////////////////// */
+
+/* ////////////////////////  TEXT  ////////////////////////// */
+
+.AO-type-input{
+	outline: none;
+	height: 30px;
+	margin-top: 2vh;
+	font-size: 18px;
+	width: 80%;
+	font-family: FuturaLight;
+	background-color: transparent;
+	outline: none;
+	padding: 10px;
+  	border: none;
+    border-bottom: solid 2px white;
+    transition: border 0.3s;
+} 
+
+.AO-type-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 18px;
+  color: #636363;
+}
+
+.AO-type-input:focus {
+	border-bottom: solid 2px black;
+}
+
+.AO-submit {
+	height: 40px;
+	width: 150px;
+	color: #a9a9a9;
+	font-size: 14px;
+	text-transform: uppercase;
+	border: solid 2px #A9A9A9;
+	outline: none;
+	margin-bottom: 3vh;
+	margin-top: 3vh;
+	background-color: white;
+}
+
+.AO-submit:hover {
+	color: black;
+	border-color: black;
+}
+
+/* //////////////////////// BUTTONS ////////////////////////// */
+
+.AO-btn {
+	height: 30px;
+	width: 75px;
+	color: #a9a9a9;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding-top: 5px;
+	border-radius: 5px;
+	border: solid 2px #a9a9a9;
+	outline: none;
+	background-color: white;
+}
+
+.AO-btn:hover {
+	color: black;
+	border-color: black;
+}
+
+.AO-btn-big {
+	height: 60px;
+	width: 150px;
+	color: #a9a9a9;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding-top: 2px;
+	border-radius: 10px;
+	border: solid 4px #a9a9a9;
+	outline: none;
+	background-color: white;
+}
+
+.AO-link {
+	text-decoration: none;
+	color: #A9A9A9;
+}
+
+.AO-link:hover {
+	color: black;
+}
+
+.AO-btn-big:hover {
+	color: black;
+	border-color: black;
+}
+
+
