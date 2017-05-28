@@ -10,11 +10,14 @@ body {
 }
 
 .selected-item {
+    -webkit-filter: grayscale(0);
     -webkit-transition: .125s ease-in-out;
+    -moz-filter: grayscale(0);
     -moz-transition: .125s ease-in-out;
+    -o-filter: grayscale(0);
     -o-transition: .125s ease-in-out;
-    transform: translateZ(0); /*for older browsers*/
-    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    filter: grayscale(0);
     border: 6px solid magenta;
 }
 
@@ -25,8 +28,7 @@ body {
     -moz-transition: .125s ease-in-out;
     -o-filter: grayscale(100%);
     -o-transition: .125s ease-in-out;
-    transform: translateZ(0); /*for older browsers*/
-    will-change: transform;
+    -webkit-backface-visibility: hidden;
     filter: grayscale(100%);
     border: none;
 }
