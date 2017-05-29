@@ -240,9 +240,6 @@ Template.poll.events({
             response.responses.push(question);
         }
 
-        console.log(response);
-        console.log(Cookie.get('foo'))
-
         // Store the response
         Meteor.call('insertResponse', response);
 
