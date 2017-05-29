@@ -8,9 +8,9 @@ coverage
 
 # production
 build
-settings.json
 
 # misc
 .DS_Store
 .env
 npm-debug.log
+settings.json
