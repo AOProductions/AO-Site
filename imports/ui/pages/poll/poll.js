@@ -162,6 +162,11 @@ Template.poll.onCreated(function() {
     this.speakerList = new ReactiveVar();
     this.pollCompleted = new ReactiveVar(false);
 
+    var prev_completed = Cookie.get('pollCompleted');
+    if (prev_completed) {
+        this.pollCompleted.set(true);
+    }
+
     var time = this.timestamp;
     time.set(new Date());
 
@@ -236,10 +241,12 @@ Template.poll.events({
         }
 
         console.log(response);
-        
+        console.log(Cookie.get('foo'))
+
         // Store the response
         Meteor.call('insertResponse', response);
 
+        Cookie.set('pollCompleted', true);
         var completed = Template.instance().pollCompleted;
         completed.set(true);
     }

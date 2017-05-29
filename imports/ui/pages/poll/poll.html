@@ -18,8 +18,6 @@
       <hr/>
 
 
-
-
     <!-- Poll consists of one large form made up of 'poll-group' items. Check the poll.js for more info on how everything works -->
   <form class="poll-submit">
       <div class="poll-group">
@@ -136,6 +134,19 @@
         <div class="row">
             {{#each row}}
                 {{> radioItem name="favoriteGroup" text=text }}
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+
+    <hr />
+
+    <div class="poll-group">
+        <h3 class="poll-question-title">Which events did you attend?</h3>
+        {{#each (buildRows favoriteEventQuestions 2)}}
+        <div class="row">
+            {{#each row}}
+                {{> textItem text=text }}
             {{/each}}
         </div>
         {{/each}}
