@@ -1,40 +1,51 @@
 <template name = "gal">
-
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
 	<style>
 
-		#container {
-			display: flex;
-			justify-content: space-around;
-			margin-bottom: 4vw;
+		.row {
+			text-align: center;
 		}
 
 		img {
-			width: 22vw;
-			height: 22vw;
+			width: 100%;
+			margin: 20px 0;
 		}
 
 
 	</style>
 
-	<div id="container">
-		<img src="./img/gallery/michaelche.jpg">
-		<img src="./img/gallery/chrisgethard.jpg">
-		<img src="./img/gallery/philfest2017.jpg">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<img src="./img/gallery/michaelche.jpg">
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<img src="./img/gallery/chrisgethard.jpg">
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<img src="./img/gallery/philfest2017.jpg">
+		</div>
 	</div>
 
-	<div id="container">
-		<img src="./img/gallery/ball2017.jpg">
-		<img src="./img/gallery/barryjenkins.jpg">
-		<img src="./img/gallery/sambee.jpg">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<img src="./img/gallery/ball2017.jpg">
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<img src="./img/gallery/barryjenkins.jpg">
+		</div>
+		<div class="col-md-4">
+			<img src="./img/gallery/sambee.jpg">
+		</div>
 	</div>
 
-	<div id="container">
-		<img src="./img/gallery/benefit2017.jpg">
-		<img src="./img/gallery/blowout2016.jpg">
-		<img src="./img/gallery/transparent.png">
+	<div class="row">
+		<div class="col-md-4">
+			<img src="./img/gallery/benefit2017.jpg">
+		</div>
+		<div class="col-md-4">
+			<img src="./img/gallery/blowout2016.jpg">
+		</div>
+		<!-- <div class="col-md-4">
+			<img src="./img/gallery/transparent.png">
+		</div> -->
 	</div>
-
 </template>
