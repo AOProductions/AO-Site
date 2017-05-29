@@ -8,6 +8,7 @@ coverage
 
 # production
 build
+settings.json
 
 # misc
 .DS_Store
