@@ -12,7 +12,7 @@ Meteor.methods({
       new_response = response;
       new_response.endTimestamp = new Date();
 
-      var validResponse = false;
+      var validResponse = true;
 
       // Validation Process
       // 1. Check time taken to complete poll and compare to threshold
