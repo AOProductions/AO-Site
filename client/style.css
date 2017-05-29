@@ -154,4 +154,16 @@
 	border-color: black;
 }
 
+.otherInput {
+	width: 33vw;
+	height: 40px;
+	position: relative;
+	top: -60px;
+
+}
+
+.otherInput::-webkit-input-placeholder {
+	color: #b5b5b5;
+}
+
 

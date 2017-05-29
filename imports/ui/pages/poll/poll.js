@@ -49,6 +49,7 @@ Template.poll.helpers({
             {text: "Nonconforming"},
             {text: "Transgender"},
             {text: "Woman"},
+            {text: ""},
             {text: "I prefer not to respond"}
         ];
         return genderList;
@@ -63,6 +64,7 @@ Template.poll.helpers({
             {text: "Native Hawaiian or Pacific Islander"},
             {text: "Two or more races"},
             {text: "White"},
+            {text: ""},
             {text: "I prefer not to respond"}
         ];
         return raceQuestions;
