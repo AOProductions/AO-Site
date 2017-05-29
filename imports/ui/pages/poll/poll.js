@@ -235,6 +235,8 @@ Template.poll.events({
             response.responses.push(question);
         }
 
+        console.log(response);
+        
         // Store the response
         Meteor.call('insertResponse', response);
 

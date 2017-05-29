@@ -12,19 +12,64 @@ Meteor.methods({
       new_response = response;
       new_response.endTimestamp = new Date();
 
+      var validResponse = false;
+
       // Validation Process
       // 1. Check time taken to complete poll and compare to threshold
       // 2. Validate each question to make sure the length of responses to each question is valid
       // 3. Validate each question to make sure the name is valid and value is a boolean
+      // 4. Check Honeypot
 
 
-      var threshold = 30;
+      // Check time
+      var threshold = 45;
       timeDiff = (new_response.endTimestamp.getTime() - new_response.startTimestamp.getTime()) / 1000;
-      console.log(timeDiff);
       if(timeDiff < threshold){
-          console.log("Time to take poll too short, ignoring response");
+          console.log("Spam detected, poll took: " + timeDiff + " seconds.")
+          validResponse = false;
       } else {
-          console.log("Took longer than 30 seconds, valid response");
+          console.log("Took longer than " + threshold + " seconds, valid response");
+      }
+
+      // Validate question length
+      var questionLengths = [
+          52,
+          13,
+          14,
+          4,
+          4,
+          7,
+          9,
+          5,
+          13,
+          13,
+          9,
+          1,
+          1,
+          1,
+      ]
+
+      for(var i=0; i<questionLengths.length; i++){
+          curr_question_length = new_response.responses[i].response.length;
+          if (curr_question_length != questionLengths[i]){
+              console.log("Question length mismatch!");
+              console.log(curr_question_length + " doesn't equal actual question length, " + questionLengths[i]);
+              validResponse = false;
+          }
+      }
+
+      // Check honeypot question
+      var honey = response.responses[13].response[0].value;
+
+      if (honey != ""){
+          console.log("Spam response detected!");
+          console.log("HoneyPot = " + honey);
+          validResponse = false;
+      }
+
+
+      if (validResponse){
+          console.log("Vaild response, inserting into the database")
           PollResponses.insert(new_response);
       }
   },
