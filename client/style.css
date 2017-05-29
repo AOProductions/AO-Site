@@ -157,10 +157,18 @@
 .otherInput {
 	width: 33vw;
 	height: 40px;
-	position: relative;
-	top: -60px;
+	
 
 }
+
+
+@media screen 
+  and (min-width: 900px){
+  	.otherInput {
+  		position: relative;
+		top: -60px;
+  	}
+  } 
 
 .otherInput::-webkit-input-placeholder {
 	color: #b5b5b5;
