@@ -110,7 +110,8 @@ Template.poll.helpers({
             {text: "On Campus North"},
             {text: "On Campus South"},
             {text: "Off Campus North"},
-            {text: "Off Campus South"}
+            {text: "Off Campus South"},
+            {text: "Other"}
         ];
         return housingQuestions;
     },
@@ -119,7 +120,8 @@ Template.poll.helpers({
             {text: "Freshman"},
             {text: "Sophomore"},
             {text: "Junior"},
-            {text: "Senior"}
+            {text: "Senior"},
+            {text: "Other"}
         ];
         return yearQuestions;
     },

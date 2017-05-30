@@ -22,7 +22,7 @@ Meteor.methods({
 
 
       // Check time
-      var threshold = 45;
+      var threshold = 40;
       timeDiff = (new_response.endTimestamp.getTime() - new_response.startTimestamp.getTime()) / 1000;
       if(timeDiff < threshold){
           console.log("Spam detected, poll took: " + timeDiff + " seconds.")
@@ -36,8 +36,8 @@ Meteor.methods({
           52,
           13,
           14,
-          4,
-          4,
+          5,
+          5,
           8,
           10,
           5,
@@ -60,7 +60,7 @@ Meteor.methods({
       }
 
       // Check honeypot question
-      var honey = response.responses[13].response[0].value;
+      var honey = response.responses[14].response[0].value;
 
       if (honey != ""){
           console.log("Spam response detected!");
