@@ -33,7 +33,7 @@ Meteor.methods({
 
       // Validate question length
       var questionLengths = [
-          52,
+          51,
           13,
           14,
           5,
