@@ -164,7 +164,10 @@ Template.poll.onCreated(function() {
     this.timestamp = new ReactiveVar();
     this.artistList = new ReactiveVar();
     this.speakerList = new ReactiveVar();
-    this.pollCompleted = new ReactiveVar(false);
+    
+    // Stop poll from loading
+    // this.pollCompleted = new ReactiveVar(false);
+    this.pollCompleted = new ReactiveVar(true);
 
     var prev_completed = Cookie.get('pollCompleted');
     if (prev_completed) {
