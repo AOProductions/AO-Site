@@ -7,7 +7,6 @@ import '../../ui/pages/home/home.js';
 import '../../ui/pages/calendar/calendar.js';
 import '../../ui/pages/gallery/gallery.js';
 import '../../ui/pages/about/about.js';
-import '../../ui/pages/poll/poll.js';
 import '../../ui/pages/not-found/not-found.js';
 
 // Set up all routes in the app
@@ -36,13 +35,6 @@ FlowRouter.route('/about', {
     name: 'App.about',
     action() {
         BlazeLayout.render('App_body', {main: 'about'});
-    }
-});
-
-FlowRouter.route('/poll', {
-    name: 'App.poll',
-    action() {
-        BlazeLayout.render('App_body', {main: 'poll'});
     }
 });
 
