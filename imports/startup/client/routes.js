@@ -31,6 +31,13 @@ FlowRouter.route('/gallery', {
     }
 });
 
+FlowRouter.route('/AO2018App.pdf', {
+    name: 'App.gallery',
+    action() {
+        location.reload();
+    }
+});
+
 FlowRouter.route('/about', {
     name: 'App.about',
     action() {
