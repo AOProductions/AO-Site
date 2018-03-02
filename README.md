@@ -4,7 +4,7 @@ This is the website for Northwestern University's AO Productions. See this site 
 
 ## General Overview 
 
-**Technology:** This project is written in Javascript, and uses [Meteor.js](https://www.meteor.com/) to manage the client frontend and the server backend.
+**Technology:** This project is written in Javascript, and uses [Meteor.js](http://www.meteor.com/) to manage the client frontend and the server backend.
 
 ## Building and Running:  
 To run this project, you need to go through the following steps:  
@@ -44,7 +44,7 @@ This means you made it through successfully! :thumbsup: You can now visit that U
 
 
 ## Deploying your changes to Galaxy  
-In AO we use [Namecheap](namecheap.com) to manage our domain name (a.k.a. the url: ao-productions.net) and [Galaxy](https://www.meteor.com/hosting) to host the code for the site. When making changes to the site, you shouldn't need to change anything in Namecheap; you only need to push your changes to Galaxy. To do this, you need to:  
+In AO we use [Namecheap](http://namecheap.com) to manage our domain name (a.k.a. the url: ao-productions.net) and [Galaxy](http://www.meteor.com/hosting) to host the code for the site. When making changes to the site, you shouldn't need to change anything in Namecheap; you only need to push your changes to Galaxy. To do this, you need to:  
 
 1. Make sure you're added to the Galaxy organization. (Ask someone if you need access to this)
 
