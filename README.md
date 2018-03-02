@@ -8,7 +8,7 @@ This is the website for Northwestern University's AO Productions. See this site 
 
 ## Building and Running:  
 To run this project, you need to go through the following steps:  
-(You may need to install a few programs, namely (`git`, `npm`, and `meteor`)  
+(You may need to install a few programs, namely (`git`, `npm`, and `meteor`))  
 1. Download the project folder to your computer: 
 ```
 git clone https://github.com/AOProductions/AO-Site
