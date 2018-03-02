@@ -1,6 +1,6 @@
 # AO Productions Website
 
-This is the website for Northwestern University's AO Productions. See this site live at: [ao-productions.net](ao-productions.net)
+This is the website for Northwestern University's AO Productions. See this site live at: [ao-productions.net](http://www.ao-productions.net/)
 
 ## General Overview 
 
